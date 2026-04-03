@@ -1,0 +1,175 @@
+.page {
+  padding-top: var(--nav-height);
+}
+
+.pageHeader {
+  background: var(--color-cream-dark);
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pageHeader h1 {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Measure Grid */
+.measureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+.measureCard {
+  background: var(--color-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+  height: 100%;
+}
+
+.measureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.measureIcon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.measureCard h3 {
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-warm-brown);
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.measureCard p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Table Section */
+.tableSectionAlt {
+  background: var(--color-cream-dark);
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  margin: var(--spacing-xl) 0 var(--spacing-md);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.sizeTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.sizeTable th,
+.sizeTable td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sizeTable th {
+  background: var(--color-warm-brown);
+  color: var(--color-white);
+  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sizeTable tr:last-child td {
+  border-bottom: none;
+}
+
+.sizeTable td strong {
+  color: var(--color-burgundy);
+}
+
+/* Disclaimer */
+.disclaimer {
+  display: flex;
+  gap: var(--spacing-sm);
+  background: var(--color-white);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-burgundy);
+  margin-top: var(--spacing-md);
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.disclaimerIcon {
+  font-size: 1.2rem;
+}
+
+.disclaimer a {
+  color: var(--color-burgundy);
+  text-decoration: underline;
+}
+
+/* Tips Grid */
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.tipCard {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+}
+
+.tipDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-burgundy);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.tipTitle {
+  margin-bottom: 4px;
+  font-size: 1.1rem;
+}
+
+/* Size CTA */
+.sizeCta {
+  margin-top: var(--spacing-2xl);
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--color-blush-light);
+  border-radius: var(--radius-lg);
+}
+
+.sizeCta h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.sizeCta p {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-warm-brown);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page {
+    padding-top: var(--nav-height);
+  }
+}

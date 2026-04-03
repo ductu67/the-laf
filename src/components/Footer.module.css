@@ -1,0 +1,135 @@
+.footer {
+  background: var(--color-warm-brown);
+  color: var(--color-cream);
+  padding-top: var(--spacing-2xl);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1.5fr 1.8fr;
+  gap: var(--spacing-2xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+/* Brand */
+.logo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-md);
+}
+
+.logoText {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--color-cream);
+  letter-spacing: 0.03em;
+}
+
+.logoTagline {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;      /* "order taobao" — Latin only */
+  color: var(--color-blush);
+  text-transform: lowercase;
+  margin-top: 3px;
+}
+
+.brandDesc {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: rgba(253, 250, 245, 0.7);
+  max-width: 320px;
+  margin-bottom: var(--spacing-md);
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-cream);
+  transition: all var(--transition);
+}
+
+.socialLink:hover {
+  background: var(--color-burgundy);
+  transform: translateY(-2px);
+}
+
+/* Links grid */
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.linkGroupTitle {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;           /* contains Vietnamese headers — must be 0 */
+  text-transform: none;        /* no uppercase on Vietnamese */
+  color: var(--color-blush);
+  margin-bottom: var(--spacing-md);
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.linkList a {
+  font-size: 0.88rem;
+  color: rgba(253, 250, 245, 0.75);
+  transition: color var(--transition);
+}
+
+.linkList a:hover {
+  color: var(--color-blush);
+}
+
+.contactText {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: rgba(253, 250, 245, 0.7);
+}
+
+/* Bottom bar */
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-md) 0;
+}
+
+.bottom p {
+  font-size: 0.8rem;
+  color: rgba(253, 250, 245, 0.5);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .linksGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .linksGrid {
+    grid-template-columns: 1fr;
+  }
+}

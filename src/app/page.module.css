@@ -1,0 +1,494 @@
+/* ===== HERO – split layout: text left, contained image right ===== */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  min-height: 640px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 6vw;
+  overflow: hidden;
+  padding-top: var(--nav-height);
+  padding-bottom: 2rem;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+  background: var(--color-cream-dark);
+}
+
+/* Right: contained image column (not full bleed) */
+.heroImageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroImageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  flex-shrink: 0;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* No overlay needed anymore – image is contained */
+.heroOverlay {
+  display: none;
+}
+
+/* Content sits over the overlay, on left side */
+.heroContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 540px;
+}
+
+/* Hero text */
+.heroTag {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;     /* small, safe — tag text is not Vietnamese */
+  color: var(--color-burgundy) !important;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.heroTag::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1.5px;
+  background: var(--color-burgundy);
+}
+
+.heroTitle {
+  font-family: var(--font-sans);
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 700;
+  color: var(--color-warm-brown);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0;
+}
+
+.heroTitle em {
+  font-style: italic;
+  color: var(--color-burgundy);
+  display: block;
+}
+
+.heroDesc {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: var(--color-gray);
+  max-width: 420px;
+  margin-bottom: 2.5rem;
+}
+
+.heroCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Scroll indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 3;
+}
+
+.scrollIndicator span {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;     /* Vietnamese text — keep spacing minimal */
+  text-transform: uppercase;
+  color: var(--color-gray);
+  font-weight: 500;
+}
+
+.scrollLine {
+  width: 32px;
+  height: 1px;
+  background: var(--color-burgundy);
+  animation: scrollPulse 2s ease infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleX(1); opacity: 1; }
+  50% { transform: scaleX(0.5); opacity: 0.5; }
+}
+
+/* ===== STATS BAR ===== */
+.statsBar {
+  background: var(--color-warm-brown);
+  padding: var(--spacing-sm) 0;
+  position: relative;
+  z-index: 4;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  text-align: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 12px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.stat:last-child {
+  border-right: none;
+}
+
+.statValue {
+  /* Use sans-serif (Be Vietnam Pro) — full Vietnamese Unicode support */
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-blush);
+  line-height: 1;
+  letter-spacing: 0;           /* no letter-spacing = no diacritic separation */
+}
+
+.statLabel {
+  font-size: 0.7rem;
+  letter-spacing: 0;           /* remove letter-spacing to prevent diacritic split */
+  color: rgba(253, 250, 245, 0.65);
+  font-family: var(--font-sans);
+}
+
+/* ===== PRODUCTS GRID ===== */
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.viewAllWrapper {
+  text-align: center;
+}
+
+/* ===== BRAND STORY ===== */
+.brandStory {
+  background: var(--color-cream-dark);
+  padding: var(--spacing-2xl) 0;
+}
+
+.brandGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  align-items: center;
+}
+
+.brandImageCol {
+  width: 100%;
+}
+
+.brandImageWrapper {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.brandImage {
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.brandImageWrapper:hover .brandImage {
+  transform: scale(1.03);
+}
+
+.brandContent {
+  width: 100%;
+}
+
+.brandPoints {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: var(--spacing-md);
+}
+
+.brandPoints li {
+  font-size: 0.88rem;
+  color: var(--color-warm-brown);
+  font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+/* ===== HOW TO ORDER ===== */
+.howToOrder {
+  background: var(--color-cream);
+}
+
+/* Equal-height step cards via grid stretch */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+  align-items: stretch;       /* ← key: equal height */
+  margin-bottom: var(--spacing-xl);
+}
+
+.step {
+  padding: var(--spacing-md);
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  flex: 1;                    /* ← fill RevealOnScroll wrapper (fillHeight) */
+  height: 100%;               /* ← ensure full height in grid cell */
+}
+
+.step:hover {
+  border-color: var(--color-burgundy);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.stepNumber {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--color-blush);
+  line-height: 1;
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.stepTitle {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-warm-brown);
+  margin-bottom: 8px;
+  letter-spacing: 0;           /* Vietnamese text — no spacing */
+  line-height: 1.4;
+}
+
+.stepDesc {
+  font-size: 0.83rem;
+  line-height: 1.75;
+  color: var(--color-gray);
+  flex: 1;                    /* ← push desc to fill */
+}
+
+.orderCta {
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-blush-light) 0%, var(--color-cream-dark) 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  border: 1px solid var(--color-border);
+}
+
+.orderCta p {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-warm-brown);
+  margin-bottom: var(--spacing-md);
+}
+
+/* ===== REVIEWS ===== */
+.reviews {
+  background: var(--color-cream-dark);
+}
+
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  align-items: stretch;       /* ← equal height */
+}
+
+.reviewCard {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-md);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  flex: 1;                    /* ← fill RevealOnScroll wrapper (fillHeight) */
+  height: 100%;               /* ← ensure full height in grid cell */
+}
+
+.reviewCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-blush);
+}
+
+.stars {
+  color: #C8860A;
+  font-size: 0.95rem;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.reviewText {
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--color-charcoal);
+  flex: 1;                    /* ← pushes meta to bottom always */
+  margin-bottom: var(--spacing-sm);
+}
+
+.reviewMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 12px;
+  margin-top: auto;           /* ← always at bottom */
+}
+
+.reviewName {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-warm-brown);
+}
+
+.reviewItem {
+  font-size: 0.75rem;
+  color: var(--color-gray);
+}
+
+/* ===== CTA BANNER ===== */
+.ctaBanner {
+  background: linear-gradient(135deg, var(--color-burgundy) 0%, var(--color-warm-brown) 100%);
+  padding: var(--spacing-2xl) 0;
+  text-align: center;
+}
+
+.ctaBanner h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.ctaBanner p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.ctaBtns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .heroContent {
+    max-width: 440px;
+  }
+
+  .heroImageWrapper {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Stack hero vertically on mobile */
+  .hero {
+    flex-direction: column;
+    min-height: auto;
+    padding-top: calc(var(--nav-height) + 2rem);
+    gap: 3rem;
+  }
+
+  .heroContent {
+    width: 100%;
+    order: 2;
+  }
+
+  .heroImageWrapper {
+    width: 100%;
+    height: auto;
+    order: 1;
+  }
+
+  .heroImageFrame {
+    max-width: 320px;
+    margin: 0 auto;
+    aspect-ratio: 3 / 4;
+  }
+
+  .scrollIndicator {
+    display: none;
+  }
+
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .brandGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .brandImageCol {
+    order: -1;
+  }
+
+  .reviewsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .productsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+}
