@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { products } from '@/lib/products';
 import ProductCard from '@/components/ProductCard';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import SectionHeader from '@/components/SectionHeader';
+import CTAButton from '@/components/CTAButton';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -9,6 +11,19 @@ export const metadata: Metadata = {
   description:
     'Khám phá bộ sưu tập váy, áo kiểu nữ tính, thanh lịch từ Taobao cao cấp. Tư vấn size miễn phí, giao hàng toàn quốc.',
   alternates: { canonical: '/san-pham' },
+  openGraph: {
+    title: 'Tất Cả Sản Phẩm – Shop Order Taobao Nữ Cao Cấp',
+    description: 'Khám phá bộ sưu tập váy, áo kiểu nữ tính, thanh lịch từ Taobao cao cấp. Tư vấn size miễn phí, giao hàng toàn quốc.',
+    url: 'https://thelaf.vn/san-pham',
+    siteName: 'The LaF',
+    locale: 'vi_VN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tất Cả Sản Phẩm – Shop Order Taobao Nữ Cao Cấp',
+    description: 'Khám phá bộ sưu tập váy, áo kiểu nữ tính, thanh lịch từ Taobao cao cấp. Tư vấn size miễn phí, giao hàng toàn quốc.',
+  },
 };
 
 export default function ProductsPage() {
@@ -17,13 +32,10 @@ export default function ProductsPage() {
       {/* Page Header */}
       <header className={styles.pageHeader}>
         <div className="container">
-          <p className="tag">The LaF Collection</p>
-          <div className="divider" style={{ margin: '1rem auto' }} />
-          <h1>Bộ Sưu Tập</h1>
-          <p style={{ maxWidth: 520, margin: '1rem auto 0' }}>
-            Những thiết kế được tuyển chọn từ các thương hiệu Taobao cao cấp.
-            Mỗi mẫu đều được kiểm tra kỹ về chất liệu và độ hoàn thiện.
-          </p>
+          <SectionHeader
+            title="Bộ Sưu Tập"
+            subtitle="Những thiết kế được tuyển chọn từ các thương hiệu Taobao cao cấp. Mỗi mẫu đều được kiểm tra kỹ về chất liệu và độ hoàn thiện."
+          />
         </div>
       </header>
 
@@ -46,15 +58,14 @@ export default function ProductsPage() {
           <RevealOnScroll>
             <h2>Không tìm thấy mẫu ưng ý?</h2>
             <p>Inbox cho shop, chúng mình sẽ tìm kiếm và tư vấn riêng theo yêu cầu của bạn!</p>
-            <a
+            <CTAButton
               href="https://m.me/thelaf.vn"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-primary"
-              id="products-order-cta"
+              className={styles.ctaBtn}
             >
               Nhắn tin tư vấn
-            </a>
+            </CTAButton>
           </RevealOnScroll>
         </div>
       </section>

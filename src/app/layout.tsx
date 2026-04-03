@@ -6,6 +6,7 @@ import ScrollToTop from '@/components/ScrollToTop';
 import FloatingChat from '@/components/FloatingChat';
 import MetaPixel from '@/components/MetaPixel';
 import ThemeProvider from '@/components/ThemeProvider';
+import { AppProvider } from '@/components/AppContext';
 import { Analytics } from '@vercel/analytics/react';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://thelaf.vn';
@@ -112,13 +113,15 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <Navbar />
-          <main id="main-content">{children}</main>
-          <Footer />
-          <ScrollToTop />
-          <FloatingChat />
-          <MetaPixel />
-          <Analytics />
+          <AppProvider>
+            <Navbar />
+            <main id="main-content">{children}</main>
+            <Footer />
+            <ScrollToTop />
+            <FloatingChat />
+            <MetaPixel />
+            <Analytics />
+          </AppProvider>
         </ThemeProvider>
       </body>
     </html>

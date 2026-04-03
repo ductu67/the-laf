@@ -1,0 +1,25 @@
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0;           /* buttons contain Vietnamese text */
+  text-transform: none;        /* remove uppercase — Vietnamese + uppercase = diacritic issues */
+  padding: 14px 32px;
+  border-radius: var(--radius-full);
+  transition: all var(--transition);
+  white-space: nowrap;
+  background: var(--color-burgundy);
+  color: var(--color-white);
+  border: 1.5px solid var(--color-burgundy);
+}
+
+.ctaButton:hover {
+  background: var(--color-burgundy-dark);
+  border-color: var(--color-burgundy-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow);
+}

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import SectionHeader from '@/components/SectionHeader';
+import CTAButton from '@/components/CTAButton';
+import Card from '@/components/Card';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -8,6 +10,19 @@ export const metadata: Metadata = {
   description:
     'Hướng dẫn chi tiết cách order quần áo Taobao cao cấp qua The LaF. 4 bước đơn giản: Chọn mẫu → Tư vấn size → Đặt cọc → Nhận hàng. Giải đáp mọi thắc mắc.',
   alternates: { canonical: '/huong-dan-order' },
+  openGraph: {
+    title: 'Hướng Dẫn Order Taobao Qua The LaF – Đơn Giản & Uy Tín',
+    description: 'Hướng dẫn chi tiết cách order quần áo Taobao cao cấp qua The LaF. 4 bước đơn giản: Chọn mẫu → Tư vấn size → Đặt cọc → Nhận hàng. Giải đáp mọi thắc mắc.',
+    url: 'https://thelaf.vn/huong-dan-order',
+    siteName: 'The LaF',
+    locale: 'vi_VN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hướng Dẫn Order Taobao Qua The LaF – Đơn Giản & Uy Tín',
+    description: 'Hướng dẫn chi tiết cách order quần áo Taobao cao cấp qua The LaF. 4 bước đơn giản: Chọn mẫu → Tư vấn size → Đặt cọc → Nhận hàng. Giải đáp mọi thắc mắc.',
+  },
 };
 
 const steps = [
@@ -85,13 +100,10 @@ export default function HuongDanOrderPage() {
         {/* Header */}
         <header className={styles.pageHeader}>
           <div className="container">
-            <p className="tag">Đơn giản & Minh bạch</p>
-            <div className="divider" style={{ margin: '1rem auto' }} />
-            <h1>Hướng Dẫn Order</h1>
-            <p style={{ maxWidth: 560, margin: '1rem auto 0' }}>
-              4 bước đơn giản để sở hữu những mẫu quần áo Taobao cao cấp, chất lượng.
-              Shop tư vấn tận tình, bạn an tâm mua sắm.
-            </p>
+            <SectionHeader
+              title="Hướng Dẫn Order"
+              subtitle="4 bước đơn giản để sở hữu những mẫu quần áo Taobao cao cấp, chất lượng. Shop tư vấn tận tình, bạn an tâm mua sắm."
+            />
           </div>
         </header>
 
@@ -104,7 +116,7 @@ export default function HuongDanOrderPage() {
             <div className={styles.stepsContainer}>
               {steps.map((step, i) => (
                 <RevealOnScroll key={step.number} delay={i * 100} fillHeight>
-                  <div className={styles.step}>
+                  <Card className={styles.step}>
                     <div className={styles.stepIcon}>
                       {step.icon}
                     </div>
@@ -113,7 +125,7 @@ export default function HuongDanOrderPage() {
                       <h3 className={styles.stepTitle}>{step.title}</h3>
                       <p className={styles.stepDesc}>{step.desc}</p>
                     </div>
-                  </div>
+                  </Card>
                 </RevealOnScroll>
               ))}
             </div>
@@ -126,15 +138,14 @@ export default function HuongDanOrderPage() {
             <RevealOnScroll>
               <h2>Sẵn sàng đặt hàng chưa?</h2>
               <p>Inbox ngay để được tư vấn miễn phí!</p>
-              <a
+              <CTAButton
                 href="https://m.me/thelaf.vn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-primary"
-                id="order-guide-cta"
+                className={styles.ctaBtn}
               >
                 Inbox đặt hàng ngay
-              </a>
+              </CTAButton>
             </RevealOnScroll>
           </div>
         </section>
@@ -143,20 +154,19 @@ export default function HuongDanOrderPage() {
         <section className={`section ${styles.faqSection}`} aria-labelledby="faq-heading">
           <div className="container">
             <RevealOnScroll>
-              <div className="section-header">
-                <p className="tag">Giải đáp thắc mắc</p>
-                <div className="divider" />
-                <h2 id="faq-heading">Câu Hỏi Thường Gặp</h2>
-              </div>
+              <SectionHeader
+                title="Câu Hỏi Thường Gặp"
+                subtitle="Giải đáp những thắc mắc phổ biến của khách hàng khi order Taobao qua The LaF."
+              />
             </RevealOnScroll>
 
             <div className={styles.faqGrid}>
               {faqs.map((faq, i) => (
                 <RevealOnScroll key={i} delay={i * 80} fillHeight>
-                  <div className={styles.faqItem}>
+                  <Card className={styles.faqItem}>
                     <h3 className={styles.faqQ}>{faq.q}</h3>
                     <p className={styles.faqA}>{faq.a}</p>
-                  </div>
+                  </Card>
                 </RevealOnScroll>
               ))}
             </div>

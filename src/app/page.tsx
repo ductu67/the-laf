@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { getFeaturedProducts } from '@/lib/products';
 import ProductCard from '@/components/ProductCard';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import SectionHeader from '@/components/SectionHeader';
+import CTAButton from '@/components/CTAButton';
+import Card from '@/components/Card';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -12,6 +15,19 @@ export const metadata: Metadata = {
     'The LaF – Shop quần áo nữ chuyên order Taobao cao cấp. Váy, áo kiểu thiết kế nữ tính, thanh lịch. Tư vấn size tận tình, giao hàng toàn quốc.',
   alternates: {
     canonical: '/',
+  },
+  openGraph: {
+    title: 'The LaF – Shop Quần Áo Nữ Order Taobao Cao Cấp',
+    description: 'The LaF – Shop quần áo nữ chuyên order Taobao cao cấp. Váy, áo kiểu thiết kế nữ tính, thanh lịch. Tư vấn size tận tình, giao hàng toàn quốc.',
+    url: 'https://thelaf.vn',
+    siteName: 'The LaF',
+    locale: 'vi_VN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The LaF – Shop Quần Áo Nữ Order Taobao Cao Cấp',
+    description: 'The LaF – Shop quần áo nữ chuyên order Taobao cao cấp. Váy, áo kiểu thiết kế nữ tính, thanh lịch. Tư vấn size tận tình, giao hàng toàn quốc.',
   },
 };
 
@@ -96,11 +112,11 @@ export default function HomePage() {
             Những thiết kế nữ tính, thanh lịch từ Taobao được tuyển chọn kỹ lưỡng.
             Tư vấn size tận tình, giao hàng toàn quốc.
           </p>
-          <div className={styles.heroCtas}>
-            <Link href="/san-pham" className="btn btn-primary" id="hero-cta-products">
+          <div className={styles.heroActions}>
+            <CTAButton href="/san-pham" className={styles.heroBtn}>
               Xem bộ sưu tập
-            </Link>
-            <Link href="/huong-dan-order" className="btn btn-outline" id="hero-cta-guide">
+            </CTAButton>
+            <Link href="/huong-dan-order" className={`btn btn-outline ${styles.heroSecondaryBtn}`}>
               Cách thức order
             </Link>
           </div>
@@ -131,15 +147,13 @@ export default function HomePage() {
       </section>
 
       {/* ===== FEATURED PRODUCTS ===== */}
-      <section className="section" aria-labelledby="featured-heading">
+      <section className="section" aria-label="Sản phẩm nổi bật">
         <div className="container">
           <RevealOnScroll>
-            <div className="section-header">
-              <p className="tag">Mới nhất</p>
-              <div className="divider" />
-              <h2 id="featured-heading">Bộ Sưu Tập Nổi Bật</h2>
-              <p>Những mẫu được yêu thích nhất, tuyển chọn từ các brands Taobao cao cấp.</p>
-            </div>
+            <SectionHeader
+              title="Bộ Sưu Tập Nổi Bật"
+              subtitle="Những mẫu được yêu thích nhất, tuyển chọn từ các brands Taobao cao cấp."
+            />
           </RevealOnScroll>
 
           <div className={styles.productsGrid}>
@@ -203,43 +217,26 @@ export default function HomePage() {
       </section>
 
       {/* ===== HOW TO ORDER ===== */}
-      <section className={`section ${styles.howToOrder}`} aria-labelledby="how-to-order-heading">
+      <section className="section bg-cream-dark" aria-label="Quy trình đặt hàng">
         <div className="container">
           <RevealOnScroll>
-            <div className="section-header">
-              <p className="tag">Đơn giản & An toàn</p>
-              <div className="divider" />
-              <h2 id="how-to-order-heading">4 Bước Đặt Hàng</h2>
-              <p>Quy trình đơn giản, minh bạch. Bạn yên tâm, shop lo phần còn lại.</p>
-            </div>
+            <SectionHeader
+              title="4 Bước Đặt Hàng"
+              subtitle="Quy trình đơn giản, nhanh chóng giúp bạn sở hữu những mẫu quần áo ưng ý nhất."
+            />
           </RevealOnScroll>
 
           <div className={styles.stepsGrid}>
-            {steps.map((step, i) => (
-              <RevealOnScroll key={step.number} delay={i * 100} fillHeight>
-                <div className={styles.step}>
+            {steps.map((step, index) => (
+              <RevealOnScroll key={step.number} delay={index * 150}>
+                <Card className={styles.step}>
                   <span className={styles.stepNumber}>{step.number}</span>
-                  <h3 className={styles.stepTitle}>{step.title}</h3>
-                  <p className={styles.stepDesc}>{step.desc}</p>
-                </div>
+                  <h3>{step.title}</h3>
+                  <p>{step.desc}</p>
+                </Card>
               </RevealOnScroll>
             ))}
           </div>
-
-          <RevealOnScroll>
-            <div className={styles.orderCta}>
-              <p>Sẵn sàng chọn mẫu yêu thích?</p>
-              <a
-                href="https://m.me/thelaf.vn"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-                id="home-order-cta"
-              >
-                Inbox đặt hàng ngay
-              </a>
-            </div>
-          </RevealOnScroll>
         </div>
       </section>
 
@@ -247,11 +244,10 @@ export default function HomePage() {
       <section className={`section ${styles.reviews}`} aria-labelledby="reviews-heading">
         <div className="container">
           <RevealOnScroll>
-            <div className="section-header">
-              <p className="tag">Khách hàng nói gì</p>
-              <div className="divider" />
-              <h2 id="reviews-heading">Đánh Giá Từ Khách Hàng</h2>
-            </div>
+            <SectionHeader
+              title="Đánh Giá Từ Khách Hàng"
+              subtitle="Lắng nghe chia sẻ từ những cô nàng đã tin tưởng và lựa chọn The LaF."
+            />
           </RevealOnScroll>
 
           <div className={styles.reviewsGrid}>
@@ -282,14 +278,10 @@ export default function HomePage() {
       <section className={`section ${styles.instaSection}`} aria-labelledby="insta-heading">
         <div className="container">
           <RevealOnScroll>
-            <div className={`section-header ${styles.instaHeader}`}>
-              <a href="https://www.instagram.com/thelafshop" target="_blank" rel="noopener noreferrer" className={styles.instaTag}>
-                @thelafshop
-              </a>
-              <h2 id="insta-heading">Theo Dõi Chúng Mình Trên Instagram</h2>
-              <p>Cập nhật những mẫu thiết kế mới nhất và các chương trình ưu đãi độc quyền.</p>
-              <div className="divider" style={{ margin: '1.5rem auto' }} />
-            </div>
+            <SectionHeader
+              title="Theo Dõi Chúng Mình Trên Instagram"
+              subtitle="Cập nhật những mẫu thiết kế mới nhất và các chương trình ưu đãi độc quyền @thelafshop"
+            />
           </RevealOnScroll>
 
           <div className={styles.instaGrid}>
@@ -312,9 +304,14 @@ export default function HomePage() {
 
           <RevealOnScroll>
             <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
-              <a href="https://www.instagram.com/thelafshop" target="_blank" rel="noopener noreferrer" className="btn btn-outline" id="insta-cta">
+              <CTAButton
+                href="https://www.instagram.com/thelafshop"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline"
+              >
                 Xem toàn bộ trên Instagram
-              </a>
+              </CTAButton>
             </div>
           </RevealOnScroll>
         </div>
@@ -326,25 +323,22 @@ export default function HomePage() {
             <h2 id="cta-heading">Chưa tìm được mẫu ưng ý?</h2>
             <p>Inbox cho shop, chúng mình sẽ tìm kiếm và tư vấn riêng cho bạn!</p>
             <div className={styles.ctaBtns}>
-              <a
+              <CTAButton
                 href="https://www.facebook.com/thelaf.vn"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-primary"
-                id="cta-facebook"
               >
                 Nhắn tin Facebook
-              </a>
-              <a
+              </CTAButton>
+              <CTAButton
                 href="https://www.instagram.com/thelafshop"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-outline"
-                id="cta-instagram"
                 style={{ borderColor: 'white', color: 'white' }}
               >
                 Nhắn tin Instagram
-              </a>
+              </CTAButton>
             </div>
           </RevealOnScroll>
         </div>

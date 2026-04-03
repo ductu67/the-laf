@@ -15,7 +15,8 @@
 .header.scrolled {
   background: var(--color-navbar-bg);
   border-bottom-color: var(--color-border);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--card-shadow);
+
   backdrop-filter: blur(20px);
 }
 

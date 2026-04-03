@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import SectionHeader from '@/components/SectionHeader';
+import CTAButton from '@/components/CTAButton';
+import Card from '@/components/Card';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -7,6 +10,19 @@ export const metadata: Metadata = {
   description:
     'Liên hệ The LaF để đặt hàng, tư vấn size hoặc hỏi thông tin sản phẩm. Nhắn tin qua Facebook hoặc Instagram, shop phản hồi trong ngày.',
   alternates: { canonical: '/lien-he' },
+  openGraph: {
+    title: 'Liên Hệ – Order Quần Áo Taobao | The LaF',
+    description: 'Liên hệ The LaF để đặt hàng, tư vấn size hoặc hỏi thông tin sản phẩm. Nhắn tin qua Facebook hoặc Instagram, shop phản hồi trong ngày.',
+    url: 'https://thelaf.vn/lien-he',
+    siteName: 'The LaF',
+    locale: 'vi_VN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Liên Hệ – Order Quần Áo Taobao | The LaF',
+    description: 'Liên hệ The LaF để đặt hàng, tư vấn size hoặc hỏi thông tin sản phẩm. Nhắn tin qua Facebook hoặc Instagram, shop phản hồi trong ngày.',
+  },
 };
 
 export default function LienHePage() {
@@ -15,12 +31,10 @@ export default function LienHePage() {
       {/* Header */}
       <header className={styles.pageHeader}>
         <div className="container">
-          <p className="tag">Luôn sẵn sàng phục vụ</p>
-          <div className="divider" style={{ margin: '1rem auto' }} />
-          <h1>Liên Hệ The LaF</h1>
-          <p style={{ maxWidth: 520, margin: '1rem auto 0' }}>
-            Đặt hàng, tư vấn size, hoặc hỏi bất cứ điều gì — shop luôn ở đây để giúp bạn!
-          </p>
+          <SectionHeader
+            title="Liên Hệ The LaF"
+            subtitle="Luôn sẵn sàng phục vụ. Đặt hàng, tư vấn size, hoặc hỏi bất cứ điều gì — shop luôn ở đây để giúp bạn!"
+          />
         </div>
       </header>
 
@@ -36,58 +50,61 @@ export default function LienHePage() {
                   href="https://m.me/thelaf.vn"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.channelCard}
-                  id="contact-facebook"
+                  className={styles.channelLink}
                 >
-                  <div className={styles.channelIconWrap} style={{ background: '#1877F2' }}>
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                  </div>
-                  <div className={styles.channelInfo}>
-                    <strong>Facebook Messenger</strong>
-                    <span>m.me/thelaf.vn</span>
-                    <p>Kênh chính để đặt hàng & tư vấn</p>
-                  </div>
-                  <span className={styles.channelArrow}>→</span>
+                  <Card className={styles.channelCard}>
+                    <div className={styles.channelIconWrap} style={{ background: '#1877F2' }}>
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                      </svg>
+                    </div>
+                    <div className={styles.channelInfo}>
+                      <strong>Facebook Messenger</strong>
+                      <span>m.me/thelaf.vn</span>
+                      <p>Kênh chính để đặt hàng & tư vấn</p>
+                    </div>
+                    <span className={styles.channelArrow}>→</span>
+                  </Card>
                 </a>
 
                 <a
                   href="https://www.instagram.com/thelafshop"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.channelCard}
-                  id="contact-instagram"
+                  className={styles.channelLink}
                 >
-                  <div className={styles.channelIconWrap} style={{ background: 'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)' }}>
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                  </div>
-                  <div className={styles.channelInfo}>
-                    <strong>Instagram</strong>
-                    <span>@thelafshop</span>
-                    <p>DM để đặt hàng & xem thêm ảnh</p>
-                  </div>
-                  <span className={styles.channelArrow}>→</span>
+                  <Card className={styles.channelCard}>
+                    <div className={styles.channelIconWrap} style={{ background: 'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)' }}>
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259 014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                      </svg>
+                    </div>
+                    <div className={styles.channelInfo}>
+                      <strong>Instagram</strong>
+                      <span>@thelafshop</span>
+                      <p>DM để đặt hàng & xem thêm ảnh</p>
+                    </div>
+                    <span className={styles.channelArrow}>→</span>
+                  </Card>
                 </a>
 
-                <a 
+                <a
                   href="https://www.facebook.com/thelaf.vn"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.channelCard}
-                  id="contact-fanpage"
+                  className={styles.channelLink}
                 >
-                  <div className={styles.channelIconWrap} style={{ background: 'var(--color-warm-brown)' }}>
-                    <span style={{ fontSize: '1.4rem' }}>📦</span>
-                  </div>
-                  <div className={styles.channelInfo}>
-                    <strong>Fanpage Facebook</strong>
-                    <span>facebook.com/thelaf.vn</span>
-                    <p>Xem sản phẩm mới nhất và flash sale</p>
-                  </div>
-                  <span className={styles.channelArrow}>→</span>
+                  <Card className={styles.channelCard}>
+                    <div className={styles.channelIconWrap} style={{ background: 'var(--color-warm-brown)' }}>
+                      <span style={{ fontSize: '1.4rem' }}>📦</span>
+                    </div>
+                    <div className={styles.channelInfo}>
+                      <strong>Fanpage Facebook</strong>
+                      <span>facebook.com/thelaf.vn</span>
+                      <p>Xem sản phẩm mới nhất và flash sale</p>
+                    </div>
+                    <span className={styles.channelArrow}>→</span>
+                  </Card>
                 </a>
 
                 <div className={styles.responseTime}>
@@ -108,10 +125,10 @@ export default function LienHePage() {
                     { q: '💰 Cần đặt cọc không?', a: 'Cần đặt cọc 50% khi xác nhận đơn để shop tiến hành order. Phần còn lại thanh toán khi hàng về.' },
                     { q: '🔄 Có đổi trả không?', a: 'Hỗ trợ đổi size nếu shop tư vấn sai. Không hỗ trợ trả hàng nếu khách tự chọn size.' },
                   ].map((item, i) => (
-                    <div key={i} className={styles.faqMiniItem}>
+                    <Card key={i} className={styles.faqMiniItem}>
                       <p className={styles.faqMiniQ}>{item.q}</p>
                       <p className={styles.faqMiniA}>{item.a}</p>
-                    </div>
+                    </Card>
                   ))}
                 </div>
               </div>
@@ -126,15 +143,14 @@ export default function LienHePage() {
           <RevealOnScroll>
             <h2>Đừng ngại nhắn tin nhé!</h2>
             <p>Shop The LaF luôn thân thiện và sẵn sàng hỗ trợ bạn có trải nghiệm mua sắm tốt nhất.</p>
-            <a
+            <CTAButton
               href="https://m.me/thelaf.vn"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-primary"
-              id="contact-final-cta"
+              className={styles.ctaBtn}
             >
               💬 Nhắn tin ngay
-            </a>
+            </CTAButton>
           </RevealOnScroll>
         </div>
       </section>
