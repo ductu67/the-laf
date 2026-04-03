@@ -1,0 +1,106 @@
+.floatingWrapper {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chatButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+}
+
+.chatButton:hover {
+  transform: scale(1.1);
+}
+
+.messenger {
+  background: linear-gradient(45deg, #00B2FF, #006AFF);
+  animation: float 3s ease-in-out infinite;
+}
+
+.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  animation: float 3s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  fill: #fff;
+}
+
+.tooltip {
+  position: absolute;
+  right: 75px;
+  background: var(--color-charcoal);
+  color: var(--color-white);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateX(10px);
+  pointer-events: none;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px 0 5px 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--color-charcoal);
+}
+
+.chatButton:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@media (max-width: 768px) {
+  .floatingWrapper {
+    bottom: 20px;
+    right: 20px;
+    gap: 12px;
+  }
+  
+  .chatButton {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .icon {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .tooltip {
+    display: none;
+  }
+}

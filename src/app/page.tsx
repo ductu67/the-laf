@@ -278,7 +278,47 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* ===== INSTAGRAM FEED ===== */}
+      <section className={`section ${styles.instaSection}`} aria-labelledby="insta-heading">
+        <div className="container">
+          <RevealOnScroll>
+            <div className={`section-header ${styles.instaHeader}`}>
+              <a href="https://www.instagram.com/thelafshop" target="_blank" rel="noopener noreferrer" className={styles.instaTag}>
+                @thelafshop
+              </a>
+              <h2 id="insta-heading">Theo Dõi Chúng Mình Trên Instagram</h2>
+              <p>Cập nhật những mẫu thiết kế mới nhất và các chương trình ưu đãi độc quyền.</p>
+              <div className="divider" style={{ margin: '1.5rem auto' }} />
+            </div>
+          </RevealOnScroll>
 
+          <div className={styles.instaGrid}>
+            {[
+              { id: 1, src: '/product-floral-dress.png', alt: 'Váy hoa nhí thời trang Taobao' },
+              { id: 2, src: '/product-blouse.png', alt: 'Áo Blouse thanh lịch' },
+              { id: 3, src: '/product-ao-yem.png', alt: 'Thiết kế áo yếm hiện đại' },
+              { id: 4, src: '/product-slip-dress.png', alt: 'Váy lụa hai dây sang trọng' },
+            ].map((img, i) => (
+              <RevealOnScroll key={img.id} delay={i * 100}>
+                <a href="https://www.instagram.com/thelafshop" target="_blank" rel="noopener noreferrer" className={styles.instaItem}>
+                  <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.instaImage} />
+                  <div className={styles.instaOverlay}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" /></svg>
+                  </div>
+                </a>
+              </RevealOnScroll>
+            ))}
+          </div>
+
+          <RevealOnScroll>
+            <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+              <a href="https://www.instagram.com/thelafshop" target="_blank" rel="noopener noreferrer" className="btn btn-outline" id="insta-cta">
+                Xem toàn bộ trên Instagram
+              </a>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
       {/* ===== CTA BANNER ===== */}
       <section className={styles.ctaBanner} aria-labelledby="cta-heading">
         <div className="container">

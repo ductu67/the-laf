@@ -72,7 +72,13 @@ export default function LienHePage() {
                   <span className={styles.channelArrow}>→</span>
                 </a>
 
-                <div className={styles.channelCard} style={{ cursor: 'default', pointerEvents: 'none' }}>
+                <a 
+                  href="https://www.facebook.com/thelaf.vn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.channelCard}
+                  id="contact-fanpage"
+                >
                   <div className={styles.channelIconWrap} style={{ background: 'var(--color-warm-brown)' }}>
                     <span style={{ fontSize: '1.4rem' }}>📦</span>
                   </div>
@@ -81,7 +87,8 @@ export default function LienHePage() {
                     <span>facebook.com/thelaf.vn</span>
                     <p>Xem sản phẩm mới nhất và flash sale</p>
                   </div>
-                </div>
+                  <span className={styles.channelArrow}>→</span>
+                </a>
 
                 <div className={styles.responseTime}>
                   <span className={styles.responseIcon}>⏱</span>

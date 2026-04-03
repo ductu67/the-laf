@@ -36,7 +36,9 @@
   flex-shrink: 0;
 }
 
-.heroImage {
+.heroVideo {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
 }
@@ -390,6 +392,66 @@
   color: var(--color-gray);
 }
 
+/* ===== INSTAGRAM FEED ===== */
+.instaSection {
+  background: var(--color-white);
+}
+
+.instaHeader a.instaTag {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-burgundy);
+  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-bottom: var(--spacing-xs);
+  transition: opacity var(--transition);
+}
+
+.instaHeader a.instaTag:hover {
+  opacity: 0.8;
+}
+
+.instaGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.instaItem {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: block;
+  border-radius: var(--radius-sm);
+  background: var(--color-cream-dark);
+}
+
+.instaImage {
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.instaOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(107, 76, 59, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+  z-index: 2;
+}
+
+.instaItem:hover .instaImage {
+  transform: scale(1.05);
+}
+
+.instaItem:hover .instaOverlay {
+  opacity: 1;
+}
+
 /* ===== CTA BANNER ===== */
 .ctaBanner {
   background: linear-gradient(135deg, var(--color-burgundy) 0%, var(--color-warm-brown) 100%);
@@ -480,6 +542,10 @@
 
   .reviewsGrid {
     grid-template-columns: 1fr;
+  }
+
+  .instaGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

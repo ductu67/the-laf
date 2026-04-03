@@ -3,6 +3,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
+import FloatingChat from '@/components/FloatingChat';
 import { Analytics } from '@vercel/analytics/react';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://thelaf.vn';
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
       'Shop quần áo nữ chuyên order Taobao cao cấp. Váy, áo kiểu nữ tính thanh lịch. Giao hàng toàn quốc.',
     images: [
       {
-        url: '/hero-banner.png',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'The LaF – Shop Order Taobao',
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The LaF – Shop Quần Áo Nữ Order Taobao',
     description: 'Váy, áo kiểu nữ tính thanh lịch. Order Taobao cao cấp, giao hàng toàn quốc.',
-    images: ['/hero-banner.png'],
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -112,6 +113,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <Footer />
         <ScrollToTop />
+        <FloatingChat />
         <Analytics />
       </body>
     </html>

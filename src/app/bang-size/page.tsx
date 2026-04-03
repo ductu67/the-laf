@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import RevealOnScroll from '@/components/RevealOnScroll';
+import SizeCalculator from '@/components/SizeCalculator';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -53,6 +54,15 @@ export default function BangSizePage() {
               </RevealOnScroll>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Size Calculator component added here */}
+      <section className={`section ${styles.calcSection}`} aria-labelledby="calc-heading" style={{ background: 'var(--color-cream-dark)' }}>
+        <div className="container">
+          <RevealOnScroll>
+            <SizeCalculator />
+          </RevealOnScroll>
         </div>
       </section>
 
