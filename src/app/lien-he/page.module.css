@@ -183,6 +183,43 @@
   margin: 0 auto 2rem;
 }
 
+[data-theme='dark'] .pageHeader {
+  background: linear-gradient(135deg, #1A1A1A 0%, #2D1B15 100%);
+}
+
+[data-theme='dark'] .channelCard {
+  background: #1E1E1E;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .channelCard:hover {
+  border-color: var(--color-burgundy);
+  background: #252525;
+}
+
+[data-theme='dark'] .ctaBottom {
+  background: linear-gradient(135deg, #4A0E16 0%, #1A1A1A 100%);
+}
+
+[data-theme='dark'] .ctaBottom h2 {
+  color: #EEE7E1;
+}
+
+[data-theme='dark'] .ctaBottom p {
+  color: rgba(238, 231, 225, 0.7);
+}
+
+[data-theme='dark'] .responseTime {
+  background: #1A1A1A;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .faqMiniItem {
+  background: #1E1E1E;
+  border-color: rgba(255, 255, 255, 0.08);
+  border-left-color: var(--color-blush);
+}
+
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;

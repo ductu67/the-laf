@@ -11,23 +11,38 @@
 
 /* Steps */
 .stepsContainer {
-  max-width: 760px;
+  max-width: 1000px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
 }
 
 .step {
+  min-height: 100%;
+  width: 100%;
   display: flex;
-  gap: var(--spacing-md);
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--color-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+
+.step:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
 .stepLeft {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-shrink: 0;
+  margin-bottom: var(--spacing-md);
 }
 
 .stepIcon {
@@ -44,20 +59,11 @@
 }
 
 .stepLine {
-  width: 2px;
-  flex: 1;
-  background: var(--color-blush);
-  margin: 8px 0;
-  min-height: 32px;
-}
-
-.step:last-child .stepLine {
   display: none;
 }
 
 .stepContent {
-  padding-bottom: var(--spacing-xl);
-  padding-top: 12px;
+  padding-bottom: 0;
 }
 
 .stepNumber {
@@ -115,6 +121,8 @@
 }
 
 .faqItem {
+  height: 100%;
+  width: 100%;
   background: var(--color-white);
   border-radius: var(--radius-md);
   padding: var(--spacing-md);
@@ -134,6 +142,31 @@
   margin-bottom: 10px;
   line-height: 1.5;
   letter-spacing: 0;
+}
+
+[data-theme='dark'] .pageHeader {
+  background: linear-gradient(135deg, #1A1A1A 0%, #2D1B15 100%);
+}
+
+[data-theme='dark'] .ctaSection {
+  background: linear-gradient(135deg, #4A0E16 0%, #2D1B15 100%);
+}
+
+[data-theme='dark'] .ctaSection h2 {
+  color: #EEE7E1;
+}
+
+[data-theme='dark'] .ctaSection p {
+  color: rgba(238, 231, 225, 0.7);
+}
+
+[data-theme='dark'] .faqSection {
+  background: #121212;
+}
+
+[data-theme='dark'] .faqItem {
+  border: 1px solid var(--color-card-border);
+  border-left: 3px solid var(--color-burgundy);
 }
 
 .faqA {
@@ -164,6 +197,11 @@
 }
 
 @media (max-width: 768px) {
+  .stepsContainer {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
   .faqGrid {
     grid-template-columns: 1fr;
   }

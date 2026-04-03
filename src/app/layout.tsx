@@ -4,6 +4,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import FloatingChat from '@/components/FloatingChat';
+import MetaPixel from '@/components/MetaPixel';
+import ThemeProvider from '@/components/ThemeProvider';
 import { Analytics } from '@vercel/analytics/react';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://thelaf.vn';
@@ -109,12 +111,15 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Navbar />
-        <main id="main-content">{children}</main>
-        <Footer />
-        <ScrollToTop />
-        <FloatingChat />
-        <Analytics />
+        <ThemeProvider>
+          <Navbar />
+          <main id="main-content">{children}</main>
+          <Footer />
+          <ScrollToTop />
+          <FloatingChat />
+          <MetaPixel />
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

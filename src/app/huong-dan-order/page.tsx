@@ -98,18 +98,19 @@ export default function HuongDanOrderPage() {
         {/* Steps */}
         <section className="section" aria-labelledby="steps-heading">
           <div className="container">
-            <h2 id="steps-heading" className="sr-only">4 bước đặt hàng</h2>
+            <div className="section-header">
+              <h2 id="steps-heading">4 bước đặt hàng</h2>
+            </div>
             <div className={styles.stepsContainer}>
               {steps.map((step, i) => (
-                <RevealOnScroll key={step.number} delay={i * 100}>
+                <RevealOnScroll key={step.number} delay={i * 100} fillHeight>
                   <div className={styles.step}>
-                    <div className={styles.stepLeft}>
-                      <span className={styles.stepIcon}>{step.icon}</span>
-                      <div className={styles.stepLine} />
+                    <div className={styles.stepIcon}>
+                      {step.icon}
                     </div>
                     <div className={styles.stepContent}>
                       <span className={styles.stepNumber}>{step.number}</span>
-                      <h2 className={styles.stepTitle}>{step.title}</h2>
+                      <h3 className={styles.stepTitle}>{step.title}</h3>
                       <p className={styles.stepDesc}>{step.desc}</p>
                     </div>
                   </div>
@@ -151,7 +152,7 @@ export default function HuongDanOrderPage() {
 
             <div className={styles.faqGrid}>
               {faqs.map((faq, i) => (
-                <RevealOnScroll key={i} delay={i * 80}>
+                <RevealOnScroll key={i} delay={i * 80} fillHeight>
                   <div className={styles.faqItem}>
                     <h3 className={styles.faqQ}>{faq.q}</h3>
                     <p className={styles.faqA}>{faq.a}</p>

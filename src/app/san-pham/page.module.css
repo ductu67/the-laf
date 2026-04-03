@@ -27,10 +27,20 @@
 }
 
 .ctaSection p {
-  margin-bottom: 2rem;
-  max-width: 480px;
-  margin-left: auto;
   margin-right: auto;
+}
+
+[data-theme='dark'] .ctaSection {
+  background: linear-gradient(135deg, #4A0E16 0%, #1A1A1A 100%);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .ctaSection h2 {
+  color: #EEE7E1;
+}
+
+[data-theme='dark'] .ctaSection p {
+  color: rgba(238, 231, 225, 0.7);
 }
 
 @media (max-width: 968px) {

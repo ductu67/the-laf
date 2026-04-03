@@ -136,6 +136,19 @@
   animation: scrollPulse 2s ease infinite;
 }
 
+[data-theme='dark'] .statsBar {
+  background: linear-gradient(to right, #4A0E16, #2D1B15);
+  border: none;
+}
+
+[data-theme='dark'] .statValue {
+  color: #EEE7E1;
+}
+
+[data-theme='dark'] .statLabel {
+  color: rgba(238, 231, 225, 0.7);
+}
+
 @keyframes scrollPulse {
   0%, 100% { transform: scaleX(1); opacity: 1; }
   50% { transform: scaleX(0.5); opacity: 0.5; }
@@ -471,12 +484,32 @@
   font-size: 0.95rem;
   margin-bottom: 2rem;
 }
-
 .ctaBtns {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+[data-theme='dark'] .ctaBanner {
+  background: linear-gradient(135deg, #4A0E16 0%, #1A1A1A 100%);
+}
+
+[data-theme='dark'] .ctaBanner h2 {
+  color: #EEE7E1;
+}
+
+[data-theme='dark'] .ctaBanner p {
+  color: rgba(238, 231, 225, 0.7);
+}
+
+[data-theme='dark'] .orderCta {
+  background: linear-gradient(135deg, #2D1B15 0%, #1A1A1A 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .orderCta p {
+  color: #EEE7E1;
 }
 
 /* ===== RESPONSIVE ===== */

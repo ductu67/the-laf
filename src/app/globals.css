@@ -44,6 +44,32 @@
 
   --nav-height: 72px;
   --content-width: 1200px;
+
+  --color-navbar-bg: rgba(253, 250, 245, 0.85);
+  --color-footer-bg: var(--color-warm-brown);
+  --color-card-border: var(--color-border);
+}
+
+[data-theme='dark'] {
+  --color-cream: #121212;
+  --color-cream-dark: #1A1A1A;
+  --color-warm-brown: #CDC2B8;
+  --color-burgundy: #E8C4B8;
+  --color-burgundy-dark: #F5E6E0;
+  --color-blush: #6B4C3B;
+  --color-blush-light: #4A352A;
+  --color-charcoal: #EEE7E1;
+  --color-gray: #99918B;
+  --color-border: #2A2A2A;
+  --color-white: #1E1E1E; /* Elevated surface */
+
+  --color-navbar-bg: rgba(18, 18, 18, 0.85);
+  --color-footer-bg: #0A0A0A;
+  --color-card-border: rgba(255, 255, 255, 0.08);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
 }
 
 /* --- Reset & Base --- */

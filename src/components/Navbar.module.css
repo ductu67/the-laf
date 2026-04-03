@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(253, 250, 245, 0.85);
+  background: var(--color-navbar-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
@@ -13,9 +13,10 @@
 }
 
 .header.scrolled {
-  background: rgba(253, 250, 245, 0.97);
+  background: var(--color-navbar-bg);
   border-bottom-color: var(--color-border);
   box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(20px);
 }
 
 .inner {

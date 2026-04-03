@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { href: '/', label: 'Trang chủ' },
@@ -62,9 +63,12 @@ export default function Navbar() {
           Đặt hàng ngay
         </Link>
 
-        {/* Mobile Hamburger */}
-        <button
-          className={styles.hamburger}
+        {/* Theme Toggle & Mobile Hamburger */}
+        <div className={styles.navbarActions} style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <ThemeToggle />
+          
+          <button
+            className={styles.hamburger}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? 'Đóng menu' : 'Mở menu'}
           aria-expanded={menuOpen}
@@ -73,6 +77,7 @@ export default function Navbar() {
           <span className={`${styles.bar} ${menuOpen ? styles.bar2Open : ''}`} />
           <span className={`${styles.bar} ${menuOpen ? styles.bar3Open : ''}`} />
         </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
